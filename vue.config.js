@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/contacts-book/'
+    publicPath: '/comfort-zone_todo/'
 }

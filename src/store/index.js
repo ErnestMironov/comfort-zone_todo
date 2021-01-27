@@ -2,43 +2,52 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    contacts: JSON.parse(localStorage.getItem('contacts')) || [{ id: 1, name: "Mironov Ernest Arvovich", tel: "8(911)-195-37-13", bonusFields: [{ name: "Adress", value: "Saint - Petersburg" }] }]
+    todos: JSON.parse(localStorage.getItem('todos')) || [{ name: 'Выполнить тестовое задание', id: 1, complete: true }]
   },
   mutations: {
-    createContact(state, contact) {
-      state.contacts.push(contact)
-      localStorage.setItem('contacts', JSON.stringify(state.contacts))
+    createTodo(state, todo) {
+      state.todos.push(todo)
+      localStorage.setItem('todos', JSON.stringify(state.todos))
     },
-    removeContact(state, id) {
-      let idx = state.contacts.findIndex(contact => contact.id === id)
-      state.contacts.splice(idx, 1)
-      localStorage.setItem('contacts', JSON.stringify(state.contacts))
+    removeTodo(state, id) {
+      let idx = state.todos.findIndex(todo => todo.id === id)
+      state.todos.splice(idx, 1)
+      localStorage.setItem('todos', JSON.stringify(state.todos))
 
     },
-    updateContact(state, contact) {
-      const idx = state.contacts.findIndex(c => c.id === contact.id)
+    completeTodo(state, id) {
+      let idx = state.todos.findIndex(todo => todo.id === id)
+      state.todos.[idx].complete = !state.todos.[idx].complete
+      localStorage.setItem('todos', JSON.stringify(state.todos))
 
-      state.contacts[idx] = contact
+    },
+    updateTodo(state, todo) {
+      const idx = state.todos.findIndex(c => c.id === todo.id)
 
-      localStorage.setItem('contacts', JSON.stringify(state.contacts))
+      state.todos[idx] = todo
+
+      localStorage.setItem('todos', JSON.stringify(state.todos))
 
     },
   },
   actions: {
-    createContact({ commit }, contact) {
-      commit('createContact', contact)
+    createTodo({ commit }, todo) {
+      commit('createTodo', todo)
     },
-    removeContact({ commit }, id) {
-      commit('removeContact', id)
+    removeTodo({ commit }, id) {
+      commit('removeTodo', id)
     },
-    updateContact({ commit }, contact) {
-      commit('updateContact', contact)
+    completeTodo({ commit }, id) {
+      commit('completeTodo', id)
+    },
+    updateTodo({ commit }, todo) {
+      commit('updateTodo', todo)
     },
   },
   modules: {
   },
   getters: {
-    contacts: s => s.contacts,
-    getContactById: s => id => s.contacts.find(t => t.id === id)
+    todos: s => s.todos,
+    getTodoById: s => id => s.todos.find(t => t.id === id)
   }
 })

@@ -9,9 +9,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/contacts/:id',
+    path: '/:id',
     name: 'contact',
-    component: () => import('@/views/Contact.vue')
+    component: Contact
   }
 ]
 
