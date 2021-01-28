@@ -51,6 +51,7 @@ export default {
 .todo {
 	display: flex;
 	padding: 18px 40px;
+	cursor: move;
 	transition: all ease 0.2s;
 	color: black;
 	border-radius: 10px;

@@ -14,11 +14,11 @@
 				></TodoItem>
 			</transition-group>
 		</ul>
-		<div v-else class="todo-placeholder">
-			Поздравляем, вы выполнили все задачи. <br />
+		<div v-else class="todo-placeholder" @click="inputFocus">
+			Поздравляем, вы разобрались со всеми делами. <br />
 			Придумайте что-то еще!
 		</div>
-		<div class="trash">
+		<div v-if="todos.length" class="trash">
 			<div @dragover.prevent @drop="dragFinish(-1, $event)" class="trash__can">
 				<img
 					class="trash__icon"
@@ -57,6 +57,9 @@ export default {
 		},
 	},
 	methods: {
+		inputFocus() {
+			document.querySelector(".form__input").focus();
+		},
 		removeTodo(id) {
 			this.$store.dispatch("removeTodo", id);
 		},
@@ -126,11 +129,17 @@ export default {
 .todo-placeholder {
 	font-size: 35px;
 	font-weight: bold;
+	width: calc(100% - 20px);
 	margin-top: 40px;
+	margin-left: 20px;
+	padding: 40px;
 	padding-left: 20px;
+	cursor: pointer;
 	text-align: center;
 	color: var(--main-color);
 	border-radius: 10px;
+	border-radius: 10px;
+	background: #69ec692e;
 }
 .trash {
 	display: flex;
