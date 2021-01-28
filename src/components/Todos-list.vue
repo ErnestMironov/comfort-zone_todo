@@ -74,9 +74,10 @@ export default {
 		moveItem(from, to) {
 			if (to === -1) {
 				this.removeTodo(from);
-			} else {
-				this.todos.splice(to, 0, this.todos.splice(from, 1)[0]);
 			}
+			// else {
+			// 	this.todos.splice(to, 0, this.todos.splice(from, 1)[0]);
+			// }
 		},
 	},
 };
@@ -135,9 +136,6 @@ export default {
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 30px;
-	@media screen and (max-width: 1000px) {
-		display: none;
-	}
 	&__can {
 		display: flex;
 		padding: 16px 20px;
