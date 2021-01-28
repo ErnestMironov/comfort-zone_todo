@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ae32520f020f60148cf3",
-    "url": "/comfort-zone_todo/css/app.b664b870.css"
+    "revision": "5bcf2809879c37dfcd1f",
+    "url": "/comfort-zone_todo/css/app.4acf854d.css"
   },
   {
     "revision": "e5b72fee1375b0f8e555",
@@ -20,20 +20,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/comfort-zone_todo/img/pencil.98e788b4.svg"
   },
   {
-    "revision": "aab68f205eb0af04e5e99d47168ec56b",
-    "url": "/comfort-zone_todo/img/plus.aab68f20.svg"
+    "revision": "535ac3b22bc5a568de5388a3dcfb22f9",
+    "url": "/comfort-zone_todo/img/plus.535ac3b2.svg"
   },
   {
     "revision": "e103935a4963378466d0a42455abc2b5",
     "url": "/comfort-zone_todo/img/times.e103935a.svg"
   },
   {
-    "revision": "439c2e2d1a7dfad461d0a3520f55cccd",
+    "revision": "629c671f4835d4a3df5a1fb319ddc1bb",
+    "url": "/comfort-zone_todo/img/trash-can.629c671f.svg"
+  },
+  {
+    "revision": "ff1e5a1d44a2bf378f1f688c75057eb6",
     "url": "/comfort-zone_todo/index.html"
   },
   {
-    "revision": "ae32520f020f60148cf3",
-    "url": "/comfort-zone_todo/js/app.6619f43f.js"
+    "revision": "5bcf2809879c37dfcd1f",
+    "url": "/comfort-zone_todo/js/app.c9db4173.js"
   },
   {
     "revision": "e5b72fee1375b0f8e555",
