@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "104afb7027b28a5d5c23",
-    "url": "/comfort-zone_todo/css/app.b3500807.css"
+    "revision": "dfcf9acdcec191bb6757",
+    "url": "/comfort-zone_todo/css/app.0bc31a5a.css"
   },
   {
-    "revision": "e5b72fee1375b0f8e555",
+    "revision": "3c12d09259a0f9d9828a",
     "url": "/comfort-zone_todo/css/chunk-vendors.71a233fb.css"
   },
   {
@@ -24,6 +24,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/comfort-zone_todo/img/plus.535ac3b2.svg"
   },
   {
+    "revision": "da03fb213a8e70720b9d5445a452304b",
+    "url": "/comfort-zone_todo/img/save.da03fb21.svg"
+  },
+  {
     "revision": "e103935a4963378466d0a42455abc2b5",
     "url": "/comfort-zone_todo/img/times.e103935a.svg"
   },
@@ -32,16 +36,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/comfort-zone_todo/img/trash-can.629c671f.svg"
   },
   {
-    "revision": "373b9b2e34fa7c7c30ed9d783717ae73",
+    "revision": "474f916381eabd7605349fe1e4708eee",
     "url": "/comfort-zone_todo/index.html"
   },
   {
-    "revision": "104afb7027b28a5d5c23",
-    "url": "/comfort-zone_todo/js/app.8124e4af.js"
+    "revision": "dfcf9acdcec191bb6757",
+    "url": "/comfort-zone_todo/js/app.de625ecf.js"
   },
   {
-    "revision": "e5b72fee1375b0f8e555",
-    "url": "/comfort-zone_todo/js/chunk-vendors.69dd93eb.js"
+    "revision": "3c12d09259a0f9d9828a",
+    "url": "/comfort-zone_todo/js/chunk-vendors.c4c52159.js"
   },
   {
     "revision": "da300fdbbfa52380b11fb7f3ec12438a",
