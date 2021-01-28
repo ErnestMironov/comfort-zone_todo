@@ -6,10 +6,11 @@
 			name="name"
 			v-model="name"
 			placeholder="Чего изволите?"
+			required
 		/>
-		<button type="submit" class="btn btn_green">
+		<button type="submit" class="btn btn_green form__submit">
 			<img src="@/assets/images/plus.svg" alt="" />
-			Добавить
+			<span>Добавить</span>
 		</button>
 	</form>
 </template>
@@ -29,6 +30,7 @@ export default {
 				complete: false,
 			};
 			this.$store.dispatch("createTodo", todo);
+			this.name = "";
 		},
 	},
 };
@@ -47,7 +49,7 @@ export default {
 		padding: 22px 43px;
 		transition: all ease-out 0.2s;
 		border: 0;
-		border-radius: 10px;
+		border-radius: 10px;min-width: 0;
 		background-color: #fff;
 		// filter: var(--default-shadow);
 		&::placeholder {
@@ -56,7 +58,24 @@ export default {
 		&:focus {
 			outline: none;
 			box-shadow: inset 0 0 0px 4px var(--main-color);
-		}
-	}
+        }
+
+        @media screen and (max-width: 680px) {
+            padding: 15px 10px 15px 20px;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+    }
+
+    &__submit {
+        @media screen and (max-width: 680px) {
+            span {
+                display: none;
+            }
+            img {
+                margin-right: 0;
+            }
+        }
+    }
 }
 </style>

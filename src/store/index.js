@@ -6,7 +6,7 @@ export default createStore({
   },
   mutations: {
     createTodo(state, todo) {
-      state.todos.push(todo)
+      state.todos.unshift(todo)
       localStorage.setItem('todos', JSON.stringify(state.todos))
     },
     removeTodo(state, id) {

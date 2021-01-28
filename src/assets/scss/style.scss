@@ -1,12 +1,15 @@
 :root {
-	--main-color: #1aa350;
+	--main-color: #1fb35a;
+	--main-color_light: #29d66e73;
 	--main-color_dark: #3c924f;
 	--sub-color: #3384ee;
 	--sub-color_dark: #2867b9;
 	--grey: #f6f6f6;
 	--yellow: #fbda2f;
+	--yellow_light: #fde04d;
 	--yellow_dark: #dbbb1a;
 	--red: #ff6565;
+	--red_light: #ff7575;
 	--red_dark: #e24040;
 	--default-shadow: 0 1px 4px 0 rgba(21, 27, 38, 0.08);
 }
@@ -50,23 +53,39 @@ ul {
 	border-radius: 10px;
 	background-color: var(--sub-color);
 	box-shadow: var(--default-shadow);
+
+	@media screen and (max-width: 680px) {
+		padding: 15px;
+	}
+	&:focus {
+		outline: none;
+	}
 	&:hover {
 		background-color: var(--sub-color_dark);
 	}
 	&_green {
 		background-color: var(--main-color);
+		&:focus {
+			box-shadow: 0 0 0px 4px var(--main-color_light);
+		}
 		&:hover {
 			background-color: var(--main-color_dark);
 		}
 	}
 	&_yellow {
 		background-color: var(--yellow);
+		&:focus {
+			box-shadow: 0 0 0px 4px var(--yellow_light);
+		}
 		&:hover {
 			background-color: var(--yellow_dark);
 		}
 	}
 	&_red {
 		background-color: var(--red);
+		&:focus {
+			box-shadow: 0 0 0px 4px var(--red_light);
+		}
 		&:hover {
 			background-color: var(--red_dark);
 		}
@@ -83,6 +102,13 @@ ul {
 		width: 35px;
 		height: 35px;
 		padding: 0;
+
+		@media screen and (max-width: 520px) {
+			width: 28px;
+			height: 28px;
+
+			border-radius: 5px;
+		}
 		img {
 			max-width: 55%;
 			max-height: 55%;
@@ -122,6 +148,11 @@ ul {
 
 		border: 1px solid #ababab;
 		border-radius: 5px;
+
+		@media screen and (max-width: 520px) {
+			width: 28px;
+			height: 28px;
+		}
 		img {
 			max-width: 55%;
 			max-height: 55%;

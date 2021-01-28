@@ -1,57 +1,82 @@
 <template>
 	<div class="todo-wrap container">
-		<ul class="todo-list">
+		<ul class="todo-list" v-if="todos.length">
 			<transition-group name="page" mode="out-in">
-				<li class="todo" v-for="todo of todos" :key="todo.id">
-					<label class="checkbox">
-						<input
-							type="checkbox"
-							name="completed"
-							:checked="todo.complete"
-							@click="completeTodo(todo.id)"
-						/>
-						<span>
-							<img src="@/assets/images/complete.svg" alt="Удалить контакт" />
-						</span>
-					</label>
-					<h2 class="todo__name">{{ todo.name }}</h2>
-					<div class="btns-row">
-						<router-link
-							tag="div"
-							tabindex="0"
-							class="btn btn_s btn_yellow"
-							:to="'/' + todo.id"
-						>
-							<img src="@/assets/images/pencil.svg" alt="Изменить контакт" />
-						</router-link>
-						<div
-							@click="removeTodo(todo.id)"
-							tabindex="0"
-							type="submit"
-							class="btn btn_s btn_red"
-						>
-							<img src="@/assets/images/times.svg" alt="Удалить контакт" />
-						</div>
-					</div>
-				</li>
+				<TodoItem
+					v-for="todo of todos"
+					:key="todo.id"
+					:todo="todo"
+					draggable="true"
+					@dragstart="dragStart(todo.id, $event)"
+					@dragover.prevent
+					@dragend="dragEnd"
+					@drop="dragFinish(todo.id, $event)"
+				></TodoItem>
 			</transition-group>
 		</ul>
+		<div v-else class="todo-placeholder">
+			Поздравляем, вы выполнили все задачи. <br />
+			Придумайте что-то еще!
+		</div>
+		<div class="trash">
+			<div @dragover.prevent @drop="dragFinish(-1, $event)" class="trash__can">
+				<img
+					class="trash__icon"
+					src="@/assets/images/trash-can.svg"
+					alt="удалить"
+				/>
+				<div class="trash__txt">
+					<h3 class="trash__title">Корзина</h3>
+					<span>
+						Перетащите сюда <br />
+						для удаления
+					</span>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
+import TodoItem from "./Todo-item";
+
 export default {
+	components: { TodoItem },
+	data: () => {
+		return {
+			newItem: "",
+			dragging: -1,
+		};
+	},
 	computed: {
 		todos() {
 			return this.$store.getters.todos;
+		},
+		isDragging() {
+			return this.dragging > -1;
 		},
 	},
 	methods: {
 		removeTodo(id) {
 			this.$store.dispatch("removeTodo", id);
 		},
-		completeTodo(id) {
-			this.$store.dispatch("completeTodo", id);
+		dragStart(which, ev) {
+			ev.dataTransfer.setData("Text", this.id);
+			ev.dataTransfer.dropEffect = "move";
+			this.dragging = which;
+		},
+		dragEnd(ev) {
+			this.dragging = -1;
+		},
+		dragFinish(to, ev) {
+			this.moveItem(this.dragging, to);
+		},
+		moveItem(from, to) {
+			if (to === -1) {
+				this.removeTodo(from);
+			} else {
+				this.todos.splice(to, 0, this.todos.splice(from, 1)[0]);
+			}
 		},
 	},
 };
@@ -59,13 +84,27 @@ export default {
 
 <style lang="scss" scoped>
 .todo-wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100vh - 200px);
 	padding-left: 0;
+	@media screen and (max-width: 1000px) {
+		height: auto;
+		padding: 0 20px 40px;
+	}
 }
 .todo-list {
 	overflow: auto;
-	max-height: calc(100vh - 260px);
+	max-height: calc(100vh - 400px);
 	margin-top: 64px;
 	padding: 4px 40px 4px 20px;
+	@media screen and (max-width: 1000px) {
+		overflow: visible;
+		max-height: 100%;
+		margin-top: 40px;
+		padding: 0;
+	}
 	&::-webkit-scrollbar {
 		width: 8px;
 		border-radius: 5px;
@@ -77,31 +116,48 @@ export default {
 		background: var(--main-color);
 	}
 	.todo:not(:last-child) {
-		margin-bottom: 30px;
+		margin-bottom: 20px;
+		@media screen and (max-width: 1000px) {
+			margin-bottom: 15px;
+		}
 	}
 }
-.todo {
-	display: flex;
-	padding: 18px 40px;
-	transition: all ease 0.2s;
-	color: black;
+.todo-placeholder {
+	font-size: 35px;
+	font-weight: bold;
+	margin-top: 40px;
+	padding-left: 20px;
+	text-align: center;
+	color: var(--main-color);
 	border-radius: 10px;
-	background: #fff;
-	box-shadow: var(--default-shadow);
-	&__name {
-		font-size: 18px;
-		font-weight: normal;
-		line-height: 21px;
-		display: flex;
-		align-items: center;
-		flex: auto;
-		margin: 0 21px;
-	}
 }
-.btns-row {
+.trash {
 	display: flex;
-	.btn:not(:last-child) {
-		margin-right: 21px;
+	justify-content: flex-end;
+	margin-top: 30px;
+	@media screen and (max-width: 1000px) {
+		display: none;
+	}
+	&__can {
+		display: flex;
+		padding: 16px 20px;
+		color: #fff;
+		border-radius: 10px;
+		background-color: var(--red);
+	}
+	&__txt {
+		font-size: 14px;
+		line-height: 16px;
+	}
+	&__title {
+		font-size: 24px;
+		font-weight: bold;
+		line-height: 28px;
+		margin-bottom: 3px;
+	}
+	&__icon {
+		max-height: 58px;
+		margin-right: 13px;
 	}
 }
 </style>
