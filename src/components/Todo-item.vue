@@ -53,9 +53,8 @@ export default {
 	padding: 18px 40px;
 	cursor: move;
 	transition: all ease 0.2s;
-	color: black;
 	border-radius: 10px;
-	background: #fff;
+	background: var(--todo-color);
 	box-shadow: var(--default-shadow);
 	@media screen and(max-width: 600px) {
 		padding: 12px;

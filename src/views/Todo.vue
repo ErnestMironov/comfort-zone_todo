@@ -66,7 +66,8 @@ export default {
 		transition: all ease-out 0.2s;margin-bottom: 20px;
 		border: 0;
 		border-radius: 10px;min-width: 0;
-		background-color: #fff;
+		background-color: var(--todo-color);
+		color: var(--font-color);
 		// filter: var(--default-shadow);
 		&::placeholder {
 			color: #969696;
