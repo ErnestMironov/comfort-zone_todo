@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/comfort-zone_todo/precache-manifest.341b96c087a810bea0bf69b6e4037413.js"
+  "/comfort-zone_todo/precache-manifest.ff4e0745ffc173c570a9833a592a789f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "comfort-zone_todo"});

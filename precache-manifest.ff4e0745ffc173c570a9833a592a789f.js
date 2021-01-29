@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "834f5abed1c1840b8548",
-    "url": "/comfort-zone_todo/css/app.49b960d4.css"
+    "revision": "4822a29500f7b02b9fc3",
+    "url": "/comfort-zone_todo/css/app.6ee745c5.css"
   },
   {
     "revision": "d7ae3440dfecffc393dc",
@@ -36,12 +36,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/comfort-zone_todo/img/trash-can.629c671f.svg"
   },
   {
-    "revision": "42c1461c853512c6b89857f625f68538",
+    "revision": "9ada5070113c91d803fdb4bbaf96a078",
     "url": "/comfort-zone_todo/index.html"
   },
   {
-    "revision": "834f5abed1c1840b8548",
-    "url": "/comfort-zone_todo/js/app.fd933cd9.js"
+    "revision": "4822a29500f7b02b9fc3",
+    "url": "/comfort-zone_todo/js/app.efce52ea.js"
   },
   {
     "revision": "d7ae3440dfecffc393dc",
