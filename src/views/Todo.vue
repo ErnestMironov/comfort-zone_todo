@@ -13,6 +13,7 @@
 				val="name"
 				placeholder="Чего изволите?"
 				required
+				tabindex="0"
 			/>
 			<button type="submit" class="btn btn_green form__submit">
 				<img src="@/assets/images/save.svg" alt="" />

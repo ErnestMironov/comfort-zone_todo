@@ -15,8 +15,8 @@
 			</transition-group>
 		</ul>
 		<div v-else class="todo-placeholder" @click="inputFocus">
-			Поздравляем, вы разобрались со всеми делами. <br />
-			Придумайте что-то еще!
+			Похоже что вы разобрались со всеми своими делами, <br />
+			в противном случае добавьте еще!
 		</div>
 		<div v-if="todos.length" class="trash">
 			<div @dragover.prevent @drop="dragFinish(-1, $event)" class="trash__can">
@@ -140,6 +140,12 @@ export default {
 	border-radius: 10px;
 	border-radius: 10px;
 	background: #69ec692e;
+	@media screen and (max-width: 1000px) {
+		font-size: 20px;
+		width: 100%;
+		margin-left: 0;
+		padding: 20px;
+	}
 }
 .trash {
 	display: flex;

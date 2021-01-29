@@ -134,6 +134,9 @@ ul {
 				opacity: 1;
 			}
 		}
+		&:focus ~ span {
+			box-shadow: 0 0 0px 4px var(--main-color_light);
+		}
 	}
 	span {
 		display: flex;

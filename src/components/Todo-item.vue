@@ -21,14 +21,14 @@
 			>
 				<img src="@/assets/images/pencil.svg" alt="Изменить контакт" />
 			</router-link>
-			<div
+			<button
 				@click="removeTodo(todo.id)"
 				tabindex="0"
 				type="submit"
 				class="btn btn_s btn_red"
 			>
 				<img src="@/assets/images/times.svg" alt="Удалить контакт" />
-			</div>
+			</button>
 		</div>
 	</li>
 </template>

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "357b45f319c36a2d0199",
-    "url": "/comfort-zone_todo/css/app.36a16447.css"
+    "revision": "834f5abed1c1840b8548",
+    "url": "/comfort-zone_todo/css/app.49b960d4.css"
   },
   {
-    "revision": "3c12d09259a0f9d9828a",
+    "revision": "d7ae3440dfecffc393dc",
     "url": "/comfort-zone_todo/css/chunk-vendors.71a233fb.css"
   },
   {
@@ -36,16 +36,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/comfort-zone_todo/img/trash-can.629c671f.svg"
   },
   {
-    "revision": "1f98b847216fd54324c1d3f337bc243f",
+    "revision": "42c1461c853512c6b89857f625f68538",
     "url": "/comfort-zone_todo/index.html"
   },
   {
-    "revision": "357b45f319c36a2d0199",
-    "url": "/comfort-zone_todo/js/app.24f7b65f.js"
+    "revision": "834f5abed1c1840b8548",
+    "url": "/comfort-zone_todo/js/app.fd933cd9.js"
   },
   {
-    "revision": "3c12d09259a0f9d9828a",
-    "url": "/comfort-zone_todo/js/chunk-vendors.c4c52159.js"
+    "revision": "d7ae3440dfecffc393dc",
+    "url": "/comfort-zone_todo/js/chunk-vendors.1e2782c4.js"
   },
   {
     "revision": "da300fdbbfa52380b11fb7f3ec12438a",
