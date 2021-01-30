@@ -64,19 +64,27 @@ export default {
 			this.$store.dispatch("removeTodo", id);
 		},
 		dragStart(which, ev) {
-			ev.dataTransfer.setData("Text", this.id);
 			ev.dataTransfer.dropEffect = "move";
 			this.dragging = which;
+			ev.target.classList.add("in-moution");
 		},
 		dragEnd(ev) {
 			this.dragging = -1;
+			ev.target.classList.remove("in-moution");
 		},
 		dragFinish(to, ev) {
-			this.moveItem(this.dragging, to);
+			this.moveItem(to);
 		},
-		moveItem(from, to) {
+		highDeletedElement() {
+			document.querySelector(".trash__can").classList.add("high");
+			this.movebleItem.classList.add("delete");
+		},
+		removeHighDeletedElement(ev) {
+			ev.target.classList.remove("high");
+		},
+		moveItem(to) {
 			if (to === -1) {
-				this.removeTodo(from);
+				this.removeTodo(this.dragging);
 			}
 			// else {
 			// 	this.todos.splice(to, 0, this.todos.splice(from, 1)[0]);
@@ -154,9 +162,13 @@ export default {
 	&__can {
 		display: flex;
 		padding: 16px 20px;
+		transition: all ease 0.2s;
 		color: #fff;
 		border-radius: 10px;
 		background-color: var(--red);
+		&.high {
+			box-shadow: 0 0 0px 4px var(--red_light);
+		}
 	}
 	&__txt {
 		font-size: 14px;

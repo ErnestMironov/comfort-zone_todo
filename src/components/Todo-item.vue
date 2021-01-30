@@ -68,6 +68,9 @@ export default {
 		flex: auto;
 		margin: 0 21px;
 	}
+	&.in-moution {
+		background-color: rgba(233, 233, 233, 0.445);
+	}
 }
 .btns-row {
 	display: flex;

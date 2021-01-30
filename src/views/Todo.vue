@@ -7,7 +7,6 @@
 		>
 			<textarea
 				class="todo-page__input"
-				type="text"
 				name="name"
 				v-model="name"
 				val="name"
